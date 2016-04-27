@@ -8,6 +8,10 @@
 		<!-- properties中还可以配置一些属性名和属性值,此处的优先加载 -->
 		<!-- <property name="driver" value=""/> -->
 	</properties>
+
+	<typeAliases>
+		<package name="com.hao.studies.mybatis.models" />
+	</typeAliases>
 	<!-- 和spring整合后 environments配置将废除 -->
 	<environments default="development">
 		<environment id="development">
@@ -25,5 +29,7 @@
 
 	<mappers>
 		<mapper resource="META-INF/mybatis/sqlmap/persons.xml" />
+<!-- 		<mapper resource="META-INF/mybatis/mapper/PersonMapper.xml" /> -->
+		<package name="com.hao.studies.mybatis.mapper" />
 	</mappers>
 </configuration>

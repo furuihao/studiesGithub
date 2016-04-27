@@ -1,11 +1,20 @@
 package com.hao.studies.mybatis.models;
 
 public class Person {
+	private Integer id;
 	private String name;
 	private Integer age;
 	private IdCard idCard;
-	
-	public void sayHello(){
+
+	public Person(String name, Integer age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public Person() {
+	}
+
+	public void sayHello() {
 		System.out.println("person hello");
 	}
 
@@ -38,5 +47,14 @@ public class Person {
 		return "Person [name=" + name + ", age=" + age + ", idCard=" + idCard
 				+ "]";
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 
 }
