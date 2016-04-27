@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 加载数据库文件db.properties -->
-	<properties resource="config/mybatis/db.properties">
+	<properties resource="config/db.properties">
 		<!-- properties中还可以配置一些属性名和属性值,此处的优先加载 -->
 		<!-- <property name="driver" value=""/> -->
 	</properties>
@@ -24,6 +24,6 @@
 	</environments>
 
 	<mappers>
-		<mapper resource="config/mybatis/sqlmap/persons.xml" />
+		<mapper resource="META-INF/mybatis/sqlmap/persons.xml" />
 	</mappers>
 </configuration>

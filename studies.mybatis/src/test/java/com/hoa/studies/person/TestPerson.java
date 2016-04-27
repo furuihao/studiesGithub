@@ -17,7 +17,7 @@ public class TestPerson {
 	@Test
 	public void test() throws IOException {
 		InputStream resourceAsStream = Resources
-				.getResourceAsStream("config/mybatis/SqlMapConfig.xml");
+				.getResourceAsStream("META-INF/mybatis/SqlMapConfig.xml");
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder()
 				.build(resourceAsStream);
 		SqlSession sqlSession = sqlSessionFactory.openSession();
