@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hao.studies.mybatis.mapper.OrderCustomeMapper">
+
+	<select id="queryOrderUserById" parameterType="int"
+		resultType="com.hao.studies.mybatis.models.OrderCustome">
+		select o.*,u.username,u.address from orders o,user u where
+		o.user_id=u.id
+		and o.id=#{id}
+	</select>
+
+</mapper>
