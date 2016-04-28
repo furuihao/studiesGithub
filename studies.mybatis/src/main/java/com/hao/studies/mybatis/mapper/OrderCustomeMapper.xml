@@ -8,10 +8,22 @@
 		<result column="number" property="number" />
 		<result column="createtime" property="createtime" />
 		<result column="note" property="note" />
+		<association property="user"
+			javaType="com.hao.studies.mybatis.models.User">
+			<id column="user_id" property="id" />
+			<result column="username" property="username" />
+			<result column="address" property="address" />
+		</association>
 	</resultMap>
 
 	<select id="queryOrderUserById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.OrderCustome">
+		select o.*,u.username,u.address from orders o,user u where
+		o.user_id=u.id
+		and o.id=#{id}
+	</select>
+	<select id="queryOrderUserByIdResultMap" parameterType="int"
+		resultMap="orderUser">
 		select o.*,u.username,u.address from orders o,user u where
 		o.user_id=u.id
 		and o.id=#{id}

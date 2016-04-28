@@ -8,6 +8,8 @@ public class Order {
 	private Date createtime;
 	private String note;
 
+	private User user;
+
 	public Integer getId() {
 		return id;
 	}
@@ -38,5 +40,21 @@ public class Order {
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", number=" + number + ", createtime="
+				+ createtime + ", note=" + note + ", user=" + user
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
 }
