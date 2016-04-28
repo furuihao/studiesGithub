@@ -1,4 +1,4 @@
-package com.hoa.studies.person;
+package com.hao.studies.test;
 
 import java.io.IOException;
 
