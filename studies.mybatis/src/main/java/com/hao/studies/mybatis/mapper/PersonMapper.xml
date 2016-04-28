@@ -2,11 +2,51 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hao.studies.mybatis.mapper.PersonMapper">
+	<!-- sql片段 建议：定义单表的条件 不要包含where -->
+	<sql id="person_query_where">
+		<!-- collection:要遍历的集合 -->
+		<!-- item：每次遍历的对象 -->
+		<!-- open：开始遍历时拼接的串 -->
+		<!-- close：结束遍历时拼接的串 -->
+		<!-- separator:遍历两个对象之间需要拼接的串 -->
+		<foreach collection="ids" item="item_id" open="(" close=")"
+			separator="OR">
+			id=#{item_id}
+		</foreach>
+		<if test="personCustom != null">
+			<if test="personCustom.name != null and  personCustom.name != '' ">
+				and name like '%${personCustom.name}%'
+			</if>
+
+			<if test="personCustom.age != null  ">
+				and age=#{personCustom.age}
+			</if>
+		</if>
+	</sql>
+
+	<!-- 定义resultMap -->
+	<resultMap type="Person" id="personResultMap">
+		<result column="name_" property="name" />
+		<result column="age_" property="age" />
+	</resultMap>
+
+	<select id="findPersonList" parameterType="personVo" resultType="personCustom">
+		select * from persons
+		<where>
+			<!-- 如果person_query_where不在该mapper.xml中定义，要加上namespace前缀 -->
+			<include refid="person_query_where"></include>
+		</where>
+	</select>
+
 	<!-- id:标识映射文件中的SQL 将Sql语句封装到mappedStatment对象中，所以将Id称为Statment的Id parameterType：指定Sql语句的输入参数类型 
 		#{}:表示一个占位符 #{id}:其中的id表示接收输入的参数，参数名称就是id，如果输入的参数类型是简单类型， #{}中的参数名可以任意 resultType:指定sql输出结果所映射的Java对象，Select指定resultType表示将单条记录映射成的Java对象 -->
 	<select id="findById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.Person">
 		select * from persons where id= #{id}
+	</select>
+	<!-- 使用resultMap -->
+	<select id="findByIdResultMap" parameterType="int" resultMap="personResultMap">
+		select name name_,age age_ from persons where id= #{id}
 	</select>
 
 	<!-- ${}:表示拼接Sql串，将接收到的参数拼接到Sql语句中 ，会引起Sql注入安全隐患,不建议使用 ${value}:接收输入参数的内容，如果输入的是简单类型，${value}只能是value -->

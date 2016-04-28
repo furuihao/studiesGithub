@@ -2,6 +2,21 @@
 <!DOCTYPE configuration
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- configuration —— 根元素 -->
+<!-- properties —— 定义配置外在化 -->
+<!-- settings —— 一些全局性的配置 -->
+<!-- typeAliases —— 为一些类定义别名 -->
+<!-- typeHandlers —— -->
+<!-- 定义类型处理，也就是定义java类型与数据库中的数据类型之间的转换关系 -->
+<!-- objectFactory -->
+<!-- plugins —— -->
+<!-- Mybatis的插件，插件可以修改Mybatis内部的运行规则 -->
+<!-- environments —— 配置Mybatis的环境 -->
+<!-- environment -->
+<!-- transactionManager —— 事务管理器 -->
+<!-- dataSource —— 数据源 -->
+<!-- databaseIdProvider -->
+<!-- mappers —— 指定映射文件或映射类 -->
 <configuration>
 	<!-- 加载数据库文件db.properties -->
 	<properties resource="config/db.properties">
@@ -29,7 +44,7 @@
 
 	<mappers>
 		<mapper resource="META-INF/mybatis/sqlmap/persons.xml" />
-<!-- 		<mapper resource="META-INF/mybatis/mapper/PersonMapper.xml" /> -->
+		<!-- <mapper resource="META-INF/mybatis/mapper/PersonMapper.xml" /> -->
 		<package name="com.hao.studies.mybatis.mapper" />
 	</mappers>
 </configuration>
