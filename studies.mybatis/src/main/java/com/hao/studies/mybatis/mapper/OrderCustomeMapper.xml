@@ -3,6 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hao.studies.mybatis.mapper.OrderCustomeMapper">
 
+	<resultMap type="com.hao.studies.mybatis.models.Order" id="orderUser">
+		<id column="id" property="id" />
+		<result column="number" property="number" />
+		<result column="createtime" property="createtime" />
+		<result column="note" property="note" />
+	</resultMap>
+
 	<select id="queryOrderUserById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.OrderCustome">
 		select o.*,u.username,u.address from orders o,user u where
