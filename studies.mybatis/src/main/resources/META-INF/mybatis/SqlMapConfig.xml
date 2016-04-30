@@ -23,7 +23,11 @@
 		<!-- properties中还可以配置一些属性名和属性值,此处的优先加载 -->
 		<!-- <property name="driver" value=""/> -->
 	</properties>
-
+	<settings>
+		<!-- 打开延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
 	<typeAliases>
 		<package name="com.hao.studies.mybatis.models" />
 	</typeAliases>
