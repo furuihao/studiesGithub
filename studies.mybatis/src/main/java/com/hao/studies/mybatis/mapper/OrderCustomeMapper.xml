@@ -16,12 +16,26 @@
 		</association>
 	</resultMap>
 
+	<resultMap type="com.hao.studies.mybatis.models.Order" id="orderUserDetail"
+		extends="orderUser">
+
+		<collection property="orderDetails"
+			ofType="com.hao.studies.mybatis.models.OrderDetail">
+			<id column="detail_id" property="id" />
+			<result column="order_id" property="orderId" />
+			<result column="items_id" property="itemId" />
+			<result column="items_num" property="itemNum" />
+		</collection>
+
+	</resultMap>
+
 	<select id="queryOrderUserById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.OrderCustome">
 		select o.*,u.username,u.address from orders o,user u where
 		o.user_id=u.id
 		and o.id=#{id}
 	</select>
+
 	<select id="queryOrderUserByIdResultMap" parameterType="int"
 		resultMap="orderUser">
 		select o.*,u.username,u.address from orders o,user u where
@@ -29,4 +43,12 @@
 		and o.id=#{id}
 	</select>
 
+	<select id="queryOrderUserAndDetailByIdResultMap" parameterType="int"
+		resultMap="orderUserDetail">
+		select o.*,u.username,u.address,detail.id
+		detail_id,detail.order_id,detail.items_id,detail.items_num from
+		orders
+		o,user u,orderdetail detail where o.user_id=u.id and
+		detail.order_id=o.id and o.id=#{id}
+	</select>
 </mapper>

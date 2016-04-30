@@ -7,4 +7,6 @@ public interface OrderCustomeMapper {
 	OrderCustome queryOrderUserById(int id);
 
 	Order queryOrderUserByIdResultMap(int id);
+
+	Order queryOrderUserAndDetailByIdResultMap(int id);
 }

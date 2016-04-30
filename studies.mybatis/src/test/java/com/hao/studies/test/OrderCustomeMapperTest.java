@@ -30,4 +30,15 @@ public class OrderCustomeMapperTest {
 		session.close();
 	}
 
+	@Test
+	public void queryOrderUserAndDetailByIdResultMap() {
+		SqlSession session = SessionFactory.getSession();
+		OrderCustomeMapper orderCustomeMapper = session
+				.getMapper(OrderCustomeMapper.class);
+		Order order = orderCustomeMapper
+				.queryOrderUserAndDetailByIdResultMap(1);
+		System.out.println(order);
+		session.close();
+	}
+
 }

@@ -1,6 +1,7 @@
 package com.hao.studies.mybatis.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 	private Integer id;
@@ -9,6 +10,7 @@ public class Order {
 	private String note;
 
 	private User user;
+	private List<OrderDetail> orderDetails;
 
 	public Integer getId() {
 		return id;
@@ -56,5 +58,13 @@ public class Order {
 				+ createtime + ", note=" + note + ", user=" + user
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
 				+ ", toString()=" + super.toString() + "]";
+	}
+
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 }
