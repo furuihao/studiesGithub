@@ -7,6 +7,7 @@ import com.hao.studies.mybatis.dao.SessionFactory;
 import com.hao.studies.mybatis.mapper.OrderCustomeMapper;
 import com.hao.studies.mybatis.models.Order;
 import com.hao.studies.mybatis.models.OrderCustome;
+import com.hao.studies.mybatis.models.User;
 
 public class OrderCustomeMapperTest {
 
@@ -38,6 +39,16 @@ public class OrderCustomeMapperTest {
 		Order order = orderCustomeMapper
 				.queryOrderUserAndDetailByIdResultMap(1);
 		System.out.println(order);
+		session.close();
+	}
+
+	@Test
+	public void queryUserItemsByIdResultMap() {
+		SqlSession session = SessionFactory.getSession();
+		OrderCustomeMapper orderCustomeMapper = session
+				.getMapper(OrderCustomeMapper.class);
+		User user = orderCustomeMapper.queryUserItemsByIdResultMap(1);
+		System.out.println(user);
 		session.close();
 	}
 

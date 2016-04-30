@@ -29,6 +29,35 @@
 
 	</resultMap>
 
+	<resultMap type="com.hao.studies.mybatis.models.User" id="ueseItemsResultMap">
+		<id column="user_id" property="id" />
+		<result column="username" property="username" />
+		<result column="address" property="address" />
+		<collection property="orders" ofType="com.hao.studies.mybatis.models.Order">
+			<id column="id" property="id" />
+			<result column="number" property="number" />
+			<result column="createtime" property="createtime" />
+			<result column="note" property="note" />
+
+			<collection property="orderDetails"
+				ofType="com.hao.studies.mybatis.models.OrderDetail">
+				<id column="detail_id" property="id" />
+				<result column="order_id" property="orderId" />
+				<result column="items_id" property="itemId" />
+				<result column="items_num" property="itemNum" />
+
+				<association property="item"
+					javaType="com.hao.studies.mybatis.models.Item">
+					<id column="items_id" property="id" />
+					<result column="items_name" property="name" />
+					<result column="items_price" property="price" />
+					<result column="items_detail" property="detail" />
+				</association>
+			</collection>
+		</collection>
+
+	</resultMap>
+
 	<select id="queryOrderUserById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.OrderCustome">
 		select o.*,u.username,u.address from orders o,user u where
@@ -50,5 +79,20 @@
 		orders
 		o,user u,orderdetail detail where o.user_id=u.id and
 		detail.order_id=o.id and o.id=#{id}
+	</select>
+
+	<select id="queryUserItemsByIdResultMap" parameterType="int"
+		resultMap="ueseItemsResultMap">
+		select o.*,u.username,u.address,
+		detail.id
+		detail_id,detail.order_id,detail.items_id,detail.items_num ,
+		items.id
+		items_id,items.name items_name,items.price items_price,items.detail
+		items_detail
+		from orders o,user u,orderdetail detail,items
+		where
+		o.user_id=u.id
+		and detail.order_id=o.id and detail.items_id = items.id
+		and u.id=#{id}
 	</select>
 </mapper>

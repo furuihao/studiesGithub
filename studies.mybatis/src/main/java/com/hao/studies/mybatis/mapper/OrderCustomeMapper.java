@@ -2,6 +2,7 @@ package com.hao.studies.mybatis.mapper;
 
 import com.hao.studies.mybatis.models.Order;
 import com.hao.studies.mybatis.models.OrderCustome;
+import com.hao.studies.mybatis.models.User;
 
 public interface OrderCustomeMapper {
 	OrderCustome queryOrderUserById(int id);
@@ -9,4 +10,7 @@ public interface OrderCustomeMapper {
 	Order queryOrderUserByIdResultMap(int id);
 
 	Order queryOrderUserAndDetailByIdResultMap(int id);
+
+	User queryUserItemsByIdResultMap(int id);
+
 }

@@ -6,6 +6,8 @@ public class OrderDetail {
 	private Integer itemId;
 	private Integer itemNum;
 
+	private Item item;
+
 	public Integer getId() {
 		return id;
 	}
@@ -36,6 +38,14 @@ public class OrderDetail {
 
 	public void setItemNum(Integer itemNum) {
 		this.itemNum = itemNum;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 }
