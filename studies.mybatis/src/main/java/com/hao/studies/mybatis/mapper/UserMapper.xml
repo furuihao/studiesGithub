@@ -8,4 +8,10 @@
 		select * from user where id=#{id}
 	</select>
 
+	<select id="update" parameterType="com.hao.studies.mybatis.models.User">
+		UPDATE `user` SET
+		`username`=#{username}, `birthday`=#{birthday},
+		`sex`=#{sex},
+		`address`=#{address}
+	</select>
 </mapper>

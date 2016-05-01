@@ -4,4 +4,6 @@ import com.hao.studies.mybatis.models.User;
 
 public interface UserMapper {
 	User getById(int id);
+
+	void update(User user);
 }
