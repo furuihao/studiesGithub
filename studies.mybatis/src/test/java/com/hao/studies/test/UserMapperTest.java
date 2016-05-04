@@ -1,7 +1,5 @@
 package com.hao.studies.test;
 
-import static org.junit.Assert.fail;
-
 import java.util.Date;
 
 import org.apache.ibatis.session.SqlSession;

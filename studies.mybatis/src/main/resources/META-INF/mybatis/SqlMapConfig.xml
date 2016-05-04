@@ -27,6 +27,8 @@
 		<!-- 打开延迟加载 -->
 		<setting name="lazyLoadingEnabled" value="true" />
 		<setting name="aggressiveLazyLoading" value="false" />
+		<!-- 开启二级缓存 -->
+		<setting name="cacheEnabled" value="true" />
 	</settings>
 	<typeAliases>
 		<package name="com.hao.studies.mybatis.models" />
