@@ -5,7 +5,7 @@
 	<!-- 开启本mapper的namespace下的二级缓存 
 	默认是使用org.apache.ibatis.cache.impl.PerpetualCache
 	-->
-	<cache />
+	<!-- <cache /> -->
 	<select id="getById" parameterType="int"
 		resultType="com.hao.studies.mybatis.models.User">
 		select * from user where id=#{id}
