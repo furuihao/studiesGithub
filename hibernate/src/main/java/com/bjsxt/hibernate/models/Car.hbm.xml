@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.bjsxt.hibernate.models.Car">
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" />
+		<property name="color" />
+		<component name="tyre">
+			<!-- column="tyre_name":当组件类的字段名与主类字段名冲突时,使用column指定数据库表的字段名 -->
+			<property name="name" column="tyre_name"></property>
+			<property name="size"></property>
+		</component>
+	</class>
+
+</hibernate-mapping>
+
