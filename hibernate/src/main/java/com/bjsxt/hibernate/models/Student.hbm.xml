@@ -5,13 +5,17 @@
 
 <hibernate-mapping>
 	<class name="com.bjsxt.hibernate.models.Student">
-		<!-- <id name="id" > <generator class="identity"></generator> </id> -->
-		<composite-id name="pk" class="com.bjsxt.hibernate.models.StudentPK">
-			<key-property name="id" />
-			<key-property name="name" />
-		</composite-id>
-		<!-- <property name="name" /> -->
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		<!-- <composite-id name="pk" class="com.bjsxt.hibernate.models.StudentPK"> -->
+		<!-- <key-property name="id" /> -->
+		<!-- <key-property name="name" /> -->
+		<!-- </composite-id> -->
+		<property name="name" />
 		<property name="age" />
+		<!-- property-ref指出关系在stuIdCard那边管理 ,相当于注解的@OneToOne(mappedBy="student") -->
+		<one-to-one name="stuIdCard" property-ref="student"></one-to-one>
 	</class>
 
 </hibernate-mapping>

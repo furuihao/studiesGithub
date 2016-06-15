@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+	<!-- <class name="com.bjsxt.hibernate.models.StuIdCard"> -->
+	<!-- <id name="id"> -->
+	<!-- <generator class="identity"></generator> -->
+	<!-- </id> -->
+	<!-- <property name="num" /> -->
+	<!-- <many-to-one name="student" column="student_id" unique="true"></many-to-one> -->
+	<!-- </class> -->
+
+	<!-- 主键双向关系 -->
+	<class name="com.bjsxt.hibernate.models.StuIdCard">
+		<id name="id">
+			<generator class="foreign">
+				<param name="property">student</param>
+			</generator>
+		</id>
+		<property name="num" />
+		<one-to-one name="student" constrained="true"></one-to-one>
+	</class>
+
+</hibernate-mapping>
+

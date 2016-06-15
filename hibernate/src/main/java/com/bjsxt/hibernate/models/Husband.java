@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Husband {
@@ -31,7 +32,8 @@ public class Husband {
 	}
 
 	@OneToOne
-	@JoinColumn(name="wifeId")
+//	@JoinColumn(name="wifeId")
+	@PrimaryKeyJoinColumn
 	public Wife getWife() {
 		return wife;
 	}

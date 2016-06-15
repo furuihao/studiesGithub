@@ -28,12 +28,12 @@ public class HibernateCoreApiTest {
 	@Test
 	public void testStudent() {
 		StudentPK pk = new StudentPK();
-		pk.setId(1);
+//		pk.setId(1);
 		pk.setName("zhangsan5555");
 		Student s = new Student();
 		// s.setId(1);
 		// s.setName("zhangsan");
-		s.setPk(pk);
+//		s.setPk(pk);
 		s.setAge(8);
 
 		// SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
