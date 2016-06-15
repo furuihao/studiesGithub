@@ -69,4 +69,8 @@ public class TestPerson {
 		sqlSession.commit();
 		sqlSession.close();
 	}
+	
+	public static void main(String[] args) {
+		
+	}
 }
