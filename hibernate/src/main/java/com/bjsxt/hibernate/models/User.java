@@ -9,14 +9,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_user")
 public class User {
-	private Group group;
 	private int id;
 	private String name;
-
-	@ManyToOne
-	public Group getGroup() {
-		return group;
-	}
+//	private Group group;
+//
+//	@ManyToOne
+//	public Group getGroup() {
+//		return group;
+//	}
 
 	@Id
 	@GeneratedValue
@@ -28,9 +28,9 @@ public class User {
 		return name;
 	}
 
-	public void setGroup(Group group) {
-		this.group = group;
-	}
+//	public void setGroup(Group group) {
+//		this.group = group;
+//	}
 
 	public void setId(int id) {
 		this.id = id;

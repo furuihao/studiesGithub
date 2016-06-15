@@ -35,16 +35,16 @@
 		<!-- <mapping resource="com/bjsxt/hibernate/models/Student.hbm.xml" /> -->
 		<!-- <mapping resource="com/bjsxt/hibernate/models/StuIdCard.hbm.xml" /> -->
 		<!-- <mapping resource="com/bjsxt/hibernate/models/Car.hbm.xml" /> -->
-		<mapping resource="com/bjsxt/hibernate/models/Group.hbm.xml" />
-		<mapping resource="com/bjsxt/hibernate/models/User.hbm.xml" />
+<!-- 		<mapping resource="com/bjsxt/hibernate/models/Group.hbm.xml" /> -->
+<!-- 		<mapping resource="com/bjsxt/hibernate/models/User.hbm.xml" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Teacher" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Classes" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Husband" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Wife" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Car" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Tyre" /> -->
-<!-- 		<mapping class="com.bjsxt.hibernate.models.Group" /> -->
-<!-- 		<mapping class="com.bjsxt.hibernate.models.User" /> -->
+		<mapping class="com.bjsxt.hibernate.models.Group" />
+		<mapping class="com.bjsxt.hibernate.models.User" />
 	</session-factory>
 
 </hibernate-configuration>

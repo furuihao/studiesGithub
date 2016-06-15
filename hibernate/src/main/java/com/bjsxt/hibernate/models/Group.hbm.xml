@@ -9,6 +9,10 @@
 			<generator class="identity"></generator>
 		</id>
 		<property name="name" />
+		<set name="users">
+			<key column="group_id"></key>
+			<one-to-many class="com.bjsxt.hibernate.models.User"/>
+		</set>
 	</class>
 
 </hibernate-mapping>
