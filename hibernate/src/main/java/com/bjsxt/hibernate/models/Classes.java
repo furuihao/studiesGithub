@@ -1,6 +1,7 @@
 package com.bjsxt.hibernate.models;
 
 import javax.persistence.Entity;    
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -10,6 +11,7 @@ public class Classes {
 	private String no;
 
 	@Id
+	@GeneratedValue
 	public int getId() {
 		return id;
 	}
