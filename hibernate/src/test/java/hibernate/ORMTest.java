@@ -31,5 +31,6 @@ public class ORMTest {
 
 	public static void main(String[] args) {
 		 beforeClass();
+		 System.out.println("初始化完成");
 	}
 }
