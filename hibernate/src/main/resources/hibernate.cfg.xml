@@ -37,8 +37,8 @@
 		<!-- <mapping resource="com/bjsxt/hibernate/models/Car.hbm.xml" /> -->
 		<!-- <mapping resource="com/bjsxt/hibernate/models/Group.hbm.xml" /> -->
 		<!-- <mapping resource="com/bjsxt/hibernate/models/User.hbm.xml" /> -->
-		<mapping resource="com/bjsxt/hibernate/models/Person.hbm.xml" />
-		<mapping resource="com/bjsxt/hibernate/models/Address.hbm.xml" />
+		<!-- <mapping resource="com/bjsxt/hibernate/models/Person.hbm.xml" /> -->
+		<!-- <mapping resource="com/bjsxt/hibernate/models/Address.hbm.xml" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Teacher" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Classes" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Husband" /> -->
@@ -47,8 +47,8 @@
 		<!-- <mapping class="com.bjsxt.hibernate.models.Tyre" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Group" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.User" /> -->
-		<!-- <mapping class="com.bjsxt.hibernate.models.Person" /> -->
-		<!-- <mapping class="com.bjsxt.hibernate.models.Address" /> -->
+		<mapping class="com.bjsxt.hibernate.models.Person" />
+		<mapping class="com.bjsxt.hibernate.models.Address" />
 	</session-factory>
 
 </hibernate-configuration>

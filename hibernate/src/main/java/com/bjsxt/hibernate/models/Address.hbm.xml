@@ -9,6 +9,11 @@
 			<generator class="identity"></generator>
 		</id>
 		<property name="detail" />
+		<set name="persons" table="t_p_a">
+			<key column="address_id"></key>
+			<many-to-many column="person_id"
+				class="com.bjsxt.hibernate.models.Person"></many-to-many>
+		</set>
 	</class>
 
 </hibernate-mapping>
