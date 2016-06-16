@@ -35,8 +35,8 @@ public class Group {
 		this.name = name;
 	}
 
-	@OneToMany
-	@JoinColumn(name="groupId")
+	@OneToMany(mappedBy = "group")
+	// @JoinColumn(name="groupId")
 	public Set<User> getUsers() {
 		return users;
 	}

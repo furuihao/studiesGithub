@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Wife {
@@ -35,9 +34,9 @@ public class Wife {
 	 * 如果没有设置mappedBy,两张表都生成外键约束,造成数据冗余
 	 * @return
 	 */
-//	@OneToOne(mappedBy = "wife")
-	@OneToOne
-	@PrimaryKeyJoinColumn
+	@OneToOne(mappedBy = "wife")
+//	@OneToOne
+//	@PrimaryKeyJoinColumn
 	public Husband getHusband() {
 		return husband;
 	}

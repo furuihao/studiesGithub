@@ -32,8 +32,8 @@ public class Husband {
 	}
 
 	@OneToOne
-//	@JoinColumn(name="wifeId")
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="wifeId")
+//	@PrimaryKeyJoinColumn
 	public Wife getWife() {
 		return wife;
 	}
