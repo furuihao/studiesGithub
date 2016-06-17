@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package com.bjsxt.hibernate.models;
 
 import java.util.HashSet;
