@@ -2,6 +2,8 @@ package hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -12,7 +14,8 @@ import com.bjsxt.hibernate.models.StudentPK;
 import com.bjsxt.hibernate.models.Teacher;
 import com.bjsxt.hibernate.util.HibernateUtil;
 
-public class HibernateCoreApiTest {
+@SuppressWarnings("deprecation")
+public class CRUDTest {
 	private static SessionFactory sessionFactory = null;
 
 	@BeforeClass
