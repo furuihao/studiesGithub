@@ -3,7 +3,9 @@ package com.bjsxt.hibernate.models;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -35,7 +37,9 @@ public class Group {
 		this.name = name;
 	}
 
-	@OneToMany(mappedBy = "group")
+	// Cascade管增删改
+	// fetch管读取
+	@OneToMany(mappedBy = "group", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	// @JoinColumn(name="groupId")
 	public Set<User> getUsers() {
 		return users;

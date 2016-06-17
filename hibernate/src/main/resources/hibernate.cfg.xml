@@ -30,7 +30,7 @@
 		<property name="format_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
-		<!-- <property name="hbm2ddl.auto">create</property> -->
+		<property name="hbm2ddl.auto">create</property>
 
 		<!-- <mapping resource="com/bjsxt/hibernate/models/Student.hbm.xml" /> -->
 		<!-- <mapping resource="com/bjsxt/hibernate/models/StuIdCard.hbm.xml" /> -->
@@ -45,10 +45,10 @@
 		<!-- <mapping class="com.bjsxt.hibernate.models.Wife" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Car" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Tyre" /> -->
-		<!-- <mapping class="com.bjsxt.hibernate.models.Group" /> -->
-		<!-- <mapping class="com.bjsxt.hibernate.models.User" /> -->
-		<mapping class="com.bjsxt.hibernate.models.Person" />
-		<mapping class="com.bjsxt.hibernate.models.Address" />
+		<mapping class="com.bjsxt.hibernate.models.Group" />
+		<mapping class="com.bjsxt.hibernate.models.User" />
+		<!-- <mapping class="com.bjsxt.hibernate.models.Person" /> -->
+		<!-- <mapping class="com.bjsxt.hibernate.models.Address" /> -->
 	</session-factory>
 
 </hibernate-configuration>

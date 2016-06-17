@@ -1,5 +1,6 @@
 package com.bjsxt.hibernate.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,7 +14,7 @@ public class User {
 	private String name;
 	private Group group;
 
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.ALL })
 	public Group getGroup() {
 		return group;
 	}
