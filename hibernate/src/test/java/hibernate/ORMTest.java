@@ -18,8 +18,8 @@ public class ORMTest {
 
 	@BeforeClass
 	public static void beforeClass() {
-//		new SchemaExport(new AnnotationConfiguration().configure()).create(
-//				true, true);
+		// new SchemaExport(new AnnotationConfiguration().configure()).create(
+		// true, true);
 		sessionFactory = HibernateUtil.getSessionFactory();
 	}
 
@@ -70,8 +70,39 @@ public class ORMTest {
 		s.beginTransaction();
 		User user = (User) s.get(User.class, 1);
 		s.getTransaction().commit();
+		System.out.println(user.getName());
+		System.out.println(user.getGroup().getName());
 	}
-	
+
+	@Test
+	public void testLoadUser() {
+		testGroupSave();
+		Session s = sessionFactory.getCurrentSession();
+		s.beginTransaction();
+		User user = (User) s.load(User.class, 1);
+		// System.out.println(user.getName());
+		System.out.println(user.getGroup().getName());
+		s.getTransaction().commit();
+	}
+
+	@Test
+	public void testUpdteUser() {
+		testGroupSave();
+		Session s = sessionFactory.getCurrentSession();
+		s.beginTransaction();
+		User user = (User) s.get(User.class, 1);
+		s.getTransaction().commit();
+		// System.out.println(user.getName());
+		System.out.println(user.getGroup().getName());
+		user.setName("user");
+		user.getGroup().setName("group");
+
+		Session s2 = sessionFactory.getCurrentSession();
+		s2.beginTransaction();
+		s2.update(user);
+		s2.getTransaction().commit();
+	}
+
 	@Test
 	public void testGetGroup() {
 		testGroupSave();
@@ -82,6 +113,30 @@ public class ORMTest {
 		for (User user : group.getUsers()) {
 			System.out.println(user.getName());
 		}
+	}
+	@Test
+	public void testDeleteUser() {
+		testGroupSave();
+		Session s = sessionFactory.getCurrentSession();
+		s.beginTransaction();
+		User user = (User) s.get(User.class, 1);
+		//因为User中的Group的Cascade设置为All,在删除User时会将Group也删除掉,
+		//而且Group中的Users属性也是Cascade设置为All,所以也会将对应的User删除掉
+		//所以想要删除某个User但不想级联删除Group时,可以将User中的Group对象设置为null,打破关联关系
+//		user.setGroup(null);
+//		s.delete(user);
+		//也可以直接用HQL语句进行删除
+		s.createQuery("delete from User u where id=1").executeUpdate();
+		s.getTransaction().commit();
+	}
+	@Test
+	public void testDeleteGroup() {
+		testGroupSave();
+		Session s = sessionFactory.getCurrentSession();
+		s.beginTransaction();
+		Group group = (Group)s.get(Group.class, 1);
+//		s.delete(group);
+		s.getTransaction().commit();
 	}
 
 	@AfterClass

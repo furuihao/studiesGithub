@@ -39,7 +39,7 @@ public class Group {
 
 	// Cascade管增删改
 	// fetch管读取
-	@OneToMany(mappedBy = "group", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "group", cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
 	// @JoinColumn(name="groupId")
 	public Set<User> getUsers() {
 		return users;
