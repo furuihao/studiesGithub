@@ -135,7 +135,8 @@ public class ORMTest {
 		Session s = sessionFactory.getCurrentSession();
 		s.beginTransaction();
 		Group group = (Group)s.get(Group.class, 1);
-//		s.delete(group);
+		//Group中的Users属性的Cascade设置为All,所以会删除所有的User
+		s.delete(group);
 		s.getTransaction().commit();
 	}
 
