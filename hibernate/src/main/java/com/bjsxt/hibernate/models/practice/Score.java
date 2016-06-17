@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Score {
 	private int id;
-	private String mark;
+	private Double mark;
 
 	@Id
 	@GeneratedValue
@@ -15,7 +15,7 @@ public class Score {
 		return id;
 	}
 
-	public String getMark() {
+	public Double getMark() {
 		return mark;
 	}
 
@@ -23,7 +23,7 @@ public class Score {
 		this.id = id;
 	}
 
-	public void setMark(String mark) {
+	public void setMark(Double mark) {
 		this.mark = mark;
 	}
 

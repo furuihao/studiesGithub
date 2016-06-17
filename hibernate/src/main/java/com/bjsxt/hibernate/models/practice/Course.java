@@ -3,6 +3,7 @@ package com.bjsxt.hibernate.models.practice;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -44,8 +45,8 @@ public class Course {
 		this.students = students;
 	}
 
-	@OneToOne
-	@JoinColumn(name = "score_id")
+	@OneToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "score_id", unique = true)
 	public Score getScore() {
 		return score;
 	}

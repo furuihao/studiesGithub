@@ -9,6 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bjsxt.hibernate.models.practice.Course;
+import com.bjsxt.hibernate.models.practice.Score;
 import com.bjsxt.hibernate.models.practice.Student;
 import com.bjsxt.hibernate.util.HibernateUtil;
 
@@ -34,6 +35,11 @@ public class CRUDTest {
 
 	@Test
 	public void test() {
+		Score sco = new Score();
+		sco.setMark(78d);
+		Score sco2 = new Score();
+		sco2.setMark(90d);
+		
 		Student stu1 = new Student();
 		stu1.setName("stu1");
 		Student stu2 = new Student();
@@ -43,8 +49,19 @@ public class CRUDTest {
 		cos1.setName("cos1");
 		Course cos2 = new Course();
 		cos2.setName("cos2");
+		
+		cos1.setScore(sco);
+		cos2.setScore(sco2);
+		
+//		cos1.getStudents().add(stu1);
+//		cos1.getStudents().add(stu2);
+//		cos2.getStudents().add(stu1);
+//		cos2.getStudents().add(stu2);
 
 		stu1.getCourses().add(cos1);
+		stu1.getCourses().add(cos2);
+		stu2.getCourses().add(cos1);
+		stu2.getCourses().add(cos2);
 
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
@@ -53,8 +70,21 @@ public class CRUDTest {
 
 		session.getTransaction().commit();
 	}
+	
+	@Test
+	public void testGetStudent(){
+//		test();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		Student student = (Student)session.get(Student.class, 1);
+		for(Course c : student.getCourses()){
+			System.out.println(c.getName());
+			System.out.println(c.getScore().getMark());
+		}
+		session.getTransaction().commit();
+	}
 
 	public static void main(String[] args) {
-		// beforeClass();
+		 beforeClass();
 	}
 }
