@@ -36,7 +36,7 @@ public class Student {
 	}
 
 	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "t_student_course", joinColumns = @JoinColumn(name = "stu_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
+	@JoinTable(name = "score", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
 	public Set<Course> getCourses() {
 		return courses;
 	}

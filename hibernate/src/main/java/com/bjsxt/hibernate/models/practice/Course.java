@@ -1,21 +1,16 @@
 package com.bjsxt.hibernate.models.practice;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Course {
 	private int id;
 	private String name;
-	private Set<Student> students = new HashSet<Student>();
+	// private Set<Student> students = new HashSet<Student>();
 	private Score score;
 
 	@Id
@@ -36,17 +31,16 @@ public class Course {
 		this.name = name;
 	}
 
-	@ManyToMany(mappedBy = "courses")
-	public Set<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(Set<Student> students) {
-		this.students = students;
-	}
-
-	@OneToOne(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "score_id", unique = true)
+	// @ManyToMany(mappedBy = "courses")
+	// public Set<Student> getStudents() {
+	// return students;
+	// }
+	//
+	// public void setStudents(Set<Student> students) {
+	// this.students = students;
+	// }
+	//
+	@ManyToOne(cascade = { CascadeType.ALL })
 	public Score getScore() {
 		return score;
 	}
