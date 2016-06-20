@@ -50,9 +50,10 @@
 		<!-- <mapping class="com.bjsxt.hibernate.models.User" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Person" /> -->
 		<!-- <mapping class="com.bjsxt.hibernate.models.Address" /> -->
-		<mapping class="com.bjsxt.hibernate.models.practice.Student" />
-		<mapping class="com.bjsxt.hibernate.models.practice.Course" />
-		<mapping class="com.bjsxt.hibernate.models.practice.Score" />
+		<!-- <mapping class="com.bjsxt.hibernate.models.practice.Student" /> -->
+		<!-- <mapping class="com.bjsxt.hibernate.models.practice.Course" /> -->
+		<!-- <mapping class="com.bjsxt.hibernate.models.practice.Score" /> -->
+		<mapping class="com.bjsxt.hibernate.models.practice.Org" />
 	</session-factory>
 
 </hibernate-configuration>
