@@ -5,7 +5,7 @@
 
 <struts>
 
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default">
@@ -28,8 +28,17 @@
         </action>
     </package>
 
-    <include file="example.xml"/>
+    <include file="example.xml"/> -->
 
     <!-- Add packages here -->
+	<!-- 开发模式,热启动 -->
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="hello">
+            <result>
+				Hello.jsp
+            </result>
+        </action>
+    </package>
 
 </struts>
