@@ -1,6 +1,7 @@
 .metadata/
 .recommenders/
 .RemoteSystemsTempFiles/
+/Servers/
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
