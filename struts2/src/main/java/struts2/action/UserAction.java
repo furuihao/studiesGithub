@@ -20,6 +20,11 @@ public class UserAction extends ActionSupport
 
 	public String add() {
 		System.out.println(user.getName() + ":" + user.getAge());
+		if(user.getName()==null || user.getName().length()>4){
+			this.addFieldError("name", "name is error");
+			this.addFieldError("name", "名字太长");
+			return "error";
+		}
 		return "addSuccess";
 	}
 

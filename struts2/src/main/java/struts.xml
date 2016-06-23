@@ -67,6 +67,7 @@
 		<action name="user" class="struts2.action.UserAction">
 			<result name="addSuccess">/view/dmi/add_Success.jsp</result>
 			<result name="deletSuccess">/view/dmi/delete_Success.jsp</result>
+			<result name="error">/view/dmi/error.jsp</result>
 		</action>
 	</package>
 	<!-- 使用*通配符,如请求地址:http://localhost:8080/struts2/actions/Student_delete, -->
