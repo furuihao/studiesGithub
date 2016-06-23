@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello Struts2</title>
+<title>name space</title>
 </head>
 <body>
-Hello Struts2
+name space
 </body>
 </html>

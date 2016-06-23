@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello Struts2</title>
+<title>main struts2</title>
 </head>
 <body>
-Hello Struts2
+main struts2
+<a href="path/path">路径问题</a>
 </body>
 </html>
