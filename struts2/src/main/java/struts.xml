@@ -61,5 +61,19 @@
 			</result>
 		</action>
 	</package>
+	<!-- 动态方法调用(DMI) -->
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user" class="struts2.action.UserAction">
+			<result name="addSuccess">/view/dmi/add_Success.jsp</result>
+			<result name="deletSuccess">/view/dmi/delete_Success.jsp</result>
+		</action>
+	</package>
+	<!-- 使用*通配符,如请求地址:http://localhost:8080/struts2/actions/Student_delete, -->
+	<!-- 匹配命名空间actions下的Student_delete的action,struts2.action.StudentAction类 -->
+	<package name="actions" namespace="/actions" extends="struts-default">
+		<action name="*_*" class="struts2.action.{1}Action" method="{2}">
+			<result name="{2}Success">/view/dmi/{1}_{2}_Success.jsp</result>
+		</action>
+	</package>
 
 </struts>
