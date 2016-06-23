@@ -18,6 +18,7 @@
 	<!-- Add packages here -->
 	<!-- 开发模式,热启动 -->
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="gbk" />
 
 	<package name="default" namespace="/" extends="struts-default">
 		<action name="hello">

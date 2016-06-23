@@ -8,5 +8,6 @@
 </head>
 <body>
 Hello Struts2
+
 </body>
 </html>
