@@ -32,7 +32,9 @@ public class TreeTest {
 	}
 
 	public static void main(String[] args) {
-		beforeClass();
+//		beforeClass();
+		String str = "adcefg";
+		System.out.println(str.substring(1));
 	}
 
 	@Test

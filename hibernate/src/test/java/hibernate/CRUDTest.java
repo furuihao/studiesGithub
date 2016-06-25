@@ -11,7 +11,7 @@ import org.junit.Test;
 import com.bjsxt.hibernate.models.practice.Course;
 import com.bjsxt.hibernate.models.practice.Score;
 import com.bjsxt.hibernate.models.practice.Student;
-import com.bjsxt.hibernate.util.HibernateUtil;
+import com.bjsxt.hibernate.service.impl.Student2Impl;
 
 @SuppressWarnings("deprecation")
 public class CRUDTest {
@@ -19,12 +19,12 @@ public class CRUDTest {
 
 	@BeforeClass
 	public static void beforeClass() {
-		sessionFactory = HibernateUtil.getSessionFactory();
+//		sessionFactory = HibernateUtil.getSessionFactory();
 	}
 
 	@AfterClass
 	public static void afterClass() {
-		sessionFactory.close();
+//		sessionFactory.close();
 	}
 
 	@Test
@@ -151,8 +151,14 @@ public class CRUDTest {
 		}
 		session.getTransaction().commit();
 	}
+	
+	@Test
+	public void testStudent(){
+		com.bjsxt.hibernate.service.Student s = new Student2Impl();
+		s.say();
+	}
 
 	public static void main(String[] args) {
-		beforeClass();
+//		beforeClass();
 	}
 }
