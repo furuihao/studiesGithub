@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hello Struts2</title>
+<title>自定义Action</title>
 </head>
 <body>
-Hello Struts2
-
+自定义Action 2
 </body>
 </html>

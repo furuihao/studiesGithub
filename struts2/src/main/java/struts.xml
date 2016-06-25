@@ -5,40 +5,77 @@
 
 <struts>
 
-    <!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="true" />
+	<!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" 
+		/> <constant name="struts.devMode" value="true" /> <package name="default" 
+		namespace="/" extends="struts-default"> <default-action-ref name="index" 
+		/> <global-results> <result name="error">/WEB-INF/jsp/error.jsp</result> 
+		</global-results> <global-exception-mappings> <exception-mapping exception="java.lang.Exception" 
+		result="error"/> </global-exception-mappings> <action name="index"> <result 
+		type="redirectAction"> <param name="actionName">HelloWorld</param> <param 
+		name="namespace">/example</param> </result> </action> </package> <include 
+		file="example.xml"/> -->
 
-    <package name="default" namespace="/" extends="struts-default">
-
-        <default-action-ref name="index" />
-
-        <global-results>
-            <result name="error">/WEB-INF/jsp/error.jsp</result>
-        </global-results>
-
-        <global-exception-mappings>
-            <exception-mapping exception="java.lang.Exception" result="error"/>
-        </global-exception-mappings>
-
-        <action name="index">
-            <result type="redirectAction">
-                <param name="actionName">HelloWorld</param>
-                <param name="namespace">/example</param>
-            </result>
-        </action>
-    </package>
-
-    <include file="example.xml"/> -->
-
-    <!-- Add packages here -->
+	<!-- Add packages here -->
 	<!-- 开发模式,热启动 -->
-    <constant name="struts.devMode" value="true" />
-    <package name="default" namespace="/" extends="struts-default">
-        <action name="hello">
-            <result>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="gbk" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="hello">
+			<result>
 				Hello.jsp
-            </result>
-        </action>
-    </package>
+			</result>
+		</action>
+	</package>
+	<!-- namespace=""或不写,使用默认的命名空间,可以接收所有路径的Action,在匹配的路径下没找到,就会找到这个默认的命名空间 -->
+	<package name="main" namespace="" extends="struts-default">
+		<action name="main">
+			<result>
+				/main.jsp
+			</result>
+		</action>
+	</package>
+
+	<package name="ns" namespace="/ns" extends="struts-default">
+		<action name="index">
+			<result>
+				/view/ns/NameSpace.jsp
+			</result>
+		</action>
+	</package>
+	<!-- 使用自定义的Action -->
+	<package name="indexAction" namespace="/indexAction" extends="struts-default">
+		<action name="index" class="struts2.action.IndexAction">
+			<result name="succes">
+				/view/action/Action1.jsp
+			</result>
+			<result name="action2">
+				/view/action/Action2.jsp
+			</result>
+		</action>
+	</package>
+	<!-- 说明Jsp页面访问时的路径问题,使用绝对路径,参考path.jsp页面,使用base标签 -->
+	<package name="path" namespace="/path" extends="struts-default">
+		<action name="path" class="struts2.action.PathAction">
+			<result name="path">
+				/view/path/path.jsp
+			</result>
+		</action>
+	</package>
+	<!-- 动态方法调用(DMI) -->
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="user" class="struts2.action.UserAction">
+			<result name="addSuccess">/view/dmi/add_Success.jsp</result>
+			<result name="deletSuccess">/view/dmi/delete_Success.jsp</result>
+			<result name="error">/view/dmi/error.jsp</result>
+		</action>
+	</package>
+	<!-- 使用*通配符,如请求地址:http://localhost:8080/struts2/actions/Student_delete, -->
+	<!-- 匹配命名空间actions下的Student_delete的action,struts2.action.StudentAction类 -->
+	<package name="actions" namespace="/actions" extends="struts-default">
+		<action name="*_*" class="struts2.action.{1}Action" method="{2}">
+			<result name="{2}Success">/view/dmi/{1}_{2}_Success.jsp</result>
+		</action>
+	</package>
 
 </struts>
